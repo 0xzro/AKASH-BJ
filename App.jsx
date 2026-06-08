@@ -594,47 +594,78 @@ export default function App() {
                     <p style={{ fontWeight: 700, fontSize: 14, color: T.text, marginBottom: 5 }}>{h.title}</p>
                     <p style={{ fontSize: 13, color: T.sub, lineHeight: 1.65 }}>{h.desc}</p>
                   </div>
-                </div>
+                          <div style={{ textAlign: "center", marginBottom: 64 }}>
+            <OrangeLine center />
+            <SectionLabel text="Get In Touch" />
+            <h2 className="sec-title" style={sectionTitle}>Let's Build Together</h2>
+          </div>
+
+          <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: 48 }}>
+            {/* Info */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              {[
+                { icon: "✉️", label: "Email",     value: "akashbj.crypto@gmail.com", href: "mailto:akashbj.crypto@gmail.com" },
+                { icon: "💬", label: "Telegram",  value: "@AKASHBJ5742",             href: "https://t.me/AKASHBJ5742"       },
+                { icon: "📱", label: "WhatsApp",  value: "+91 8075801080",            href: "https://wa.me/918075801080"     },
+              ].map((c, i) => (
+                <a key={i} href={c.href} target="_blank" rel="noopener noreferrer"
+                  className="contact-row" style={{
+                    border: `1px solid ${T.border}`, background: T.surface, color: "inherit",
+                  }}>
+                  <div style={{
+                    width: 48, height: 48, flexShrink: 0,
+                    background: dark ? "rgba(255,107,0,.1)" : "rgba(255,107,0,.07)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: 22,
+                  }}>{c.icon}</div>
+                  <div>
+                    <p style={{ fontSize: 10, color: T.sub, fontWeight: 700, letterSpacing: "1.5px", textTransform: "uppercase", marginBottom: 3 }}>{c.label}</p>
+                    <p style={{ fontSize: 14, color: T.text, fontWeight: 700 }}>{c.value}</p>
+                  </div>
+                </a>
               ))}
+
+              {/* Social icons */}
+              <div style={{ display: "flex", gap: 10, paddingTop: 8, flexWrap: "wrap" }}>
+                {[
+                  { label: "𝕏",  href: "https://twitter.com/AAYSDAO", title: "Twitter" },
+                  { label: "GH", href: "https://github.com/0xzro",    title: "GitHub"  },
+                  { label: "TG", href: "https://t.me/AKASHBJ5742",    title: "Telegram"},
+                ].map((s, i) => (
+                  <a key={i} href={s.href} target="_blank" rel="noopener noreferrer"
+                    className="soc-btn"
+                    title={s.title}
+                    style={{ borderColor: T.border, color: T.sub, background: T.surface }}>
+                    {s.label}
+                  </a>
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ══════════════════════════════════════════════
-          SERVICES
-      ══════════════════════════════════════════════ */}
-      <section id="services" style={{ background: T.bg, padding: "100px 24px" }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 64 }}>
-            <OrangeLine center />
-            <SectionLabel text="What I Do" />
-            <h2 className="sec-title" style={sectionTitle}>Services & Solutions</h2>
-          </div>
+            {/* Form */}
+            <div style={{ background: T.surface, border: `1px solid ${T.border}`, padding: 36 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+                <div className="form-two-col" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                  <input placeholder="Full Name"     type="text"  style={inputStyle}
+                    onFocus={e => e.target.style.borderColor = O} onBlur={e => e.target.style.borderColor = T.border} />
+                  <input placeholder="Email Address" type="email" style={inputStyle}
+                    onFocus={e => e.target.style.borderColor = O} onBlur={e => e.target.style.borderColor = T.border} />
+                </div>
 
-          {/* 3+2 grid */}
-          <div className="grid-3col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 22, marginBottom: 22 }}>
-            {SERVICES.slice(0, 3).map((s, i) => (
-              <ServiceCard key={i} s={s} T={T} dark={dark} />
-            ))}
-          </div>
-          <div className="grid-2col" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 22, maxWidth: 820, margin: "0 auto" }}>
-            {SERVICES.slice(3).map((s, i) => (
-              <ServiceCard key={i} s={s} T={T} dark={dark} />
-            ))}
-          </div>
-        </div>
-      </section>
+                <select style={{ ...inputStyle, cursor: "pointer", color: T.sub }}
+                  onFocus={e => e.target.style.borderColor = O} onBlur={e => e.target.style.borderColor = T.border}>
+                  <option value="">Project Category</option>
+                  {SERVICES.map(s => <option key={s.title}>{s.title}</option>)}
+                </select>
 
-      {/* ══════════════════════════════════════════════
-          SKILLS
-      ══════════════════════════════════════════════ */}
-      <section id="skills" style={{ background: T.surface, padding: "100px 24px" }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: 64 }}>
-            <OrangeLine center />
-            <SectionLabel text="Expertise" />
-            <h2 className="sec-title" style={sectionTitle}>Skills & Technologies</h2>
+                <textarea placeholder="Your Message..." rows={5} style={{ ...inputStyle, resize: "vertical" }}
+                  onFocus={e => e.target.style.borderColor = O} onBlur={e => e.target.style.borderColor = T.border} />
+
+                <button className="btn-primary" style={{ clipPath: "none", padding: "16px", fontSize: 14, width: "100%" }}>
+                  Send Message →
+                </button>
+              </div>
+            </div>
           </div>
 
           <div className="grid-3col" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 48 }}>
