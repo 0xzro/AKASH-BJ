@@ -1237,19 +1237,21 @@ export default function App() {
             </div>
           </div>
 
-          {/* Bottom bar */}
+          {/** Bottom bar */}
           <div style={{
             borderTop: `1px solid ${T.border}`, paddingTop: 22,
             display: "flex", justifyContent: "space-between", alignItems: "center",
             flexWrap: "wrap", gap: 12,
           }}>
-                        <p style={{ fontSize: 12, color: T.sub }}>Built with React + Vite  ·  Hosted on Vercel</p>
+            <p style={{ fontSize: 12, color: T.sub }}>© 2026 AKASH BJ. All rights reserved.</p>
+            <p style={{ fontSize: 12, color: T.sub }}>Built with React + Vite  ·  Hosted on Vercel</p>
           </div>
         </div>
       </footer>
     </div>
   );
 } // Closes App component cleanly
+
 
 // ─────────────────────────────────────────────
 // SERVICE CARD — extracted for readability
