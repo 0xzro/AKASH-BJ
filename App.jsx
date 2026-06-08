@@ -375,20 +375,21 @@ export default function App() {
         }
         @media (max-width: 768px) {
           .desktop-only { display: none !important; }
-          .mobile-only  { display: block  !important; }
-          .grid-2col  { grid-template-columns: 1fr !important; }
-          .grid-3col  { grid-template-columns: 1fr !important; }
-          .grid-4col  { grid-template-columns: 1fr 1fr !important; }
-          .hero-title { font-size: 58px !important; }
-          .sec-title  { font-size: 36px !important; }
-          .stats-bar  { grid-template-columns: 1fr 1fr !important; }
-          .footer-row { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 24px !important; }
+          .mobile-only  { display: block !important; }
+          .grid-2col    { grid-template-columns: 1fr !important; }
+          .grid-3col    { grid-template-columns: 1fr !important; }
+          .grid-4col    { grid-template-columns: 1fr 1fr !important; }
+          .hero-title   { font-size: 42px !important; }
+          .sec-title    { font-size: 32px !important; }
+          .stats-bar    { grid-template-columns: 1fr 1fr !important; }
+          .footer-row   { flex-direction: column !important; align-items: center !important; text-align: center !important; gap: 24px !important; }
           .footer-links { justify-content: center !important; flex-wrap: wrap !important; }
           .contact-grid { grid-template-columns: 1fr !important; }
           .form-two-col { grid-template-columns: 1fr !important; }
         }
         @media (min-width: 769px) {
           .mobile-only { display: none !important; }
+          .desktop-only { display: flex !important; }
         }
       `}</style>
 
